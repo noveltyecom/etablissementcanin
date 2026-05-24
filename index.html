@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ETABLISSEMENT CANIN & COMPAGNIE | Adoption Teckels</title>
+    <meta
+      name="description"
+      content="Site officiel de ETABLISSEMENT CANIN & COMPAGNIE pour l'adoption de chiots teckels."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-content">
+        <div class="brand">
+          <span class="brand-badge">ECC</span>
+          <div>
+            <p class="brand-name">ETABLISSEMENT CANIN & COMPAGNIE</p>
+            <p class="brand-sub">Maison d'élevage de teckels</p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <label for="languageSelect" class="sr-only">Langue</label>
+          <select id="languageSelect" class="language-select" aria-label="Changer la langue">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+            <option value="de">Deutsch</option>
+            <option value="es">Español</option>
+            <option value="nl">Nederlands</option>
+            <option value="pt">Português</option>
+          </select>
+          <a class="btn btn-outline" href="tel:+33757752601">+33 7 57 75 26 01</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="tagline" data-i18n="heroTag"></p>
+            <h1 data-i18n="heroTitle"></h1>
+            <p class="hero-description" data-i18n="heroDescription"></p>
+            <div class="hero-buttons">
+              <a href="#chiots" class="btn" data-i18n="viewPuppies"></a>
+              <a href="#contact" class="btn btn-outline" data-i18n="contactUs"></a>
+            </div>
+          </div>
+          <div class="hero-card">
+            <h2 data-i18n="quickInfoTitle"></h2>
+            <ul>
+              <li data-i18n="quickInfo1"></li>
+              <li data-i18n="quickInfo2"></li>
+              <li data-i18n="quickInfo3"></li>
+            </ul>
+            <p class="location">
+              <strong data-i18n="locationLabel"></strong>
+              <span data-i18n="locationValue"></span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container">
+        <div class="section-head">
+          <h2 data-i18n="varietiesTitle"></h2>
+          <p data-i18n="varietiesSubtitle"></p>
+        </div>
+        <div class="varieties-grid">
+          <article class="variety-card">
+            <h3 data-i18n="variety1Title"></h3>
+            <p data-i18n="variety1Text"></p>
+          </article>
+          <article class="variety-card">
+            <h3 data-i18n="variety2Title"></h3>
+            <p data-i18n="variety2Text"></p>
+          </article>
+          <article class="variety-card">
+            <h3 data-i18n="variety3Title"></h3>
+            <p data-i18n="variety3Text"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section container" id="chiots">
+        <div class="section-head">
+          <h2 data-i18n="puppiesTitle"></h2>
+          <p data-i18n="puppiesSubtitle"></p>
+        </div>
+        <div class="filters">
+          <label>
+            <span data-i18n="filterSex"></span>
+            <select id="sexFilter">
+              <option value="all" data-i18n="all">Tous</option>
+              <option value="Mâle" data-i18n="male">Mâle</option>
+              <option value="Femelle" data-i18n="female">Femelle</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="filterStatus"></span>
+            <select id="statusFilter">
+              <option value="all" data-i18n="all">Tous</option>
+              <option value="available" data-i18n="available">Disponible</option>
+              <option value="reserved" data-i18n="reserved">Réservé</option>
+            </select>
+          </label>
+          <p class="availability-count"><strong data-i18n="availableCountLabel"></strong> <span id="availableCount"></span></p>
+        </div>
+        <div id="puppiesGrid" class="puppies-grid"></div>
+      </section>
+
+      <section class="section section-soft">
+        <div class="container">
+          <div class="section-head">
+            <h2 data-i18n="managePhotosTitle"></h2>
+            <p data-i18n="managePhotosSubtitle"></p>
+          </div>
+          <form id="photoManagerForm" class="form-card">
+            <label>
+              <span data-i18n="choosePuppyToManage"></span>
+              <select id="photoPuppySelect" required></select>
+            </label>
+            <label>
+              <span data-i18n="photoUrlLabel"></span>
+              <input type="url" id="photoUrlInput" data-i18n-placeholder="photoPlaceholder" placeholder="https://..." />
+            </label>
+            <label>
+              <span data-i18n="photoUploadLabel"></span>
+              <input type="file" id="photoFileInput" accept="image/*" />
+            </label>
+            <img id="photoPreview" class="photo-preview" alt="Aperçu photo" />
+            <div class="manager-actions">
+              <button class="btn" type="submit" data-i18n="addPhoto"></button>
+              <button class="btn btn-outline" type="button" id="removePhotoBtn" data-i18n="removePhoto"></button>
+            </div>
+            <p id="photoManagerFeedback" class="feedback"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="section section-soft">
+        <div class="container reservation-layout">
+          <div>
+            <h2 data-i18n="reserveTitle"></h2>
+            <p data-i18n="reserveDescription"></p>
+            <p class="note" data-i18n="paymentNote"></p>
+          </div>
+          <form id="reservationForm" class="form-card">
+            <h3 data-i18n="reservationFormTitle"></h3>
+            <label>
+              <span data-i18n="fullName"></span>
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              <span data-i18n="email"></span>
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              <span data-i18n="phone"></span>
+              <input type="tel" name="phone" required />
+            </label>
+            <label>
+              <span data-i18n="choosePuppy"></span>
+              <select name="puppyId" id="puppySelect" required></select>
+            </label>
+            <label>
+              <span data-i18n="message"></span>
+              <textarea name="message" rows="4"></textarea>
+            </label>
+            <button class="btn" type="submit" data-i18n="reserveNow"></button>
+            <p id="reservationFeedback" class="feedback"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="section container" id="contact">
+        <div class="section-head">
+          <h2 data-i18n="contactTitle"></h2>
+          <p data-i18n="contactSubtitle"></p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <p><strong data-i18n="phoneLabel"></strong> <a href="tel:+33757752601">+33 7 57 75 26 01</a></p>
+            <p>
+              <strong>WhatsApp:</strong>
+              <a href="https://wa.me/33757752601" target="_blank" rel="noopener noreferrer">+33 7 57 75 26 01</a>
+            </p>
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:etablissementcanincomp@proton.me">etablissementcanincomp@proton.me</a>
+            </p>
+            <p><strong data-i18n="addressLabel"></strong> Heugnes, Lyon, France</p>
+          </div>
+          <form id="contactForm" class="form-card">
+            <h3 data-i18n="contactFormTitle"></h3>
+            <label>
+              <span data-i18n="fullName"></span>
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              <span data-i18n="email"></span>
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              <span data-i18n="message"></span>
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+            <button type="submit" class="btn" data-i18n="sendMessage"></button>
+            <p id="contactFeedback" class="feedback"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <p>© <span id="year"></span> ETABLISSEMENT CANIN & COMPAGNIE</p>
+        <p data-i18n="footerText"></p>
+      </div>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
