@@ -1,0 +1,14 @@
+Dossier des photos de chiots teckels
+=====================================
+
+1. Copiez vos photos depuis votre PC dans ce dossier.
+2. Nommez-les exactement comme dans data/puppies.js
+   Exemple : TCK-001-1.jpg, TCK-001-2.jpg, TCK-003-1.png
+3. Ouvrez data/puppies.js dans VS Code pour modifier :
+   - le nom du chiot (name)
+   - la disponibilité (available: true ou false)
+   - les chemins photos si vous changez les noms de fichiers
+4. Enregistrez le fichier puis actualisez le site (F5).
+
+Tant que votre fichier local n'est pas présent, le site affiche
+automatiquement une photo teckel de secours (voir photoFallbacks).

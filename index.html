@@ -17,15 +17,36 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div id="pageProgress" class="page-progress" aria-hidden="true">
+      <div id="pageProgressBar" class="page-progress-bar"></div>
+    </div>
     <header class="topbar">
       <div class="container topbar-content">
         <div class="brand">
           <span class="brand-badge">ECC</span>
           <div>
             <p class="brand-name">ETABLISSEMENT CANIN & COMPAGNIE</p>
-            <p class="brand-sub">Maison d'élevage de teckels</p>
+            <p class="brand-sub" data-i18n="brandSubtitle"></p>
           </div>
         </div>
+        <button
+          id="menuToggle"
+          class="menu-toggle"
+          type="button"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+        <nav class="main-nav">
+          <a href="#accueil" data-page-target="accueil" data-i18n="navHome"></a>
+          <a href="#chiots" data-page-target="chiots" data-i18n="navPuppies"></a>
+          <a href="#transport" data-page-target="transport" data-i18n="navTransport"></a>
+          <a href="#kit" data-page-target="kit" data-i18n="navStarterKit"></a>
+          <a href="#about" data-page-target="about" data-i18n="navAbout"></a>
+          <a href="#rules" data-page-target="rules" data-i18n="navRules"></a>
+          <a href="#contact" data-page-target="contact" data-i18n="navContact"></a>
+        </nav>
         <div class="top-actions">
           <label for="languageSelect" class="sr-only">Langue</label>
           <select id="languageSelect" class="language-select" aria-label="Changer la langue">
@@ -42,15 +63,16 @@
     </header>
 
     <main>
-      <section class="hero">
+      <div id="pageContainer">
+      <section class="hero site-page" id="accueil" data-page-id="accueil">
         <div class="container hero-grid">
           <div>
             <p class="tagline" data-i18n="heroTag"></p>
             <h1 data-i18n="heroTitle"></h1>
             <p class="hero-description" data-i18n="heroDescription"></p>
             <div class="hero-buttons">
-              <a href="#chiots" class="btn" data-i18n="viewPuppies"></a>
-              <a href="#contact" class="btn btn-outline" data-i18n="contactUs"></a>
+              <a href="#chiots" data-page-target="chiots" class="btn" data-i18n="viewPuppies"></a>
+              <a href="#contact" data-page-target="contact" class="btn btn-outline" data-i18n="contactUs"></a>
             </div>
           </div>
           <div class="hero-card">
@@ -68,10 +90,10 @@
         </div>
       </section>
 
-      <section class="section container">
+      <section class="section container site-page" id="about" data-page-id="about">
         <div class="section-head">
-          <h2 data-i18n="varietiesTitle"></h2>
-          <p data-i18n="varietiesSubtitle"></p>
+          <h2 data-i18n="aboutTitle"></h2>
+          <p data-i18n="aboutSubtitle"></p>
         </div>
         <div class="varieties-grid">
           <article class="variety-card">
@@ -89,7 +111,7 @@
         </div>
       </section>
 
-      <section class="section container" id="chiots">
+      <section class="section container site-page" id="chiots" data-page-id="chiots">
         <div class="section-head">
           <h2 data-i18n="puppiesTitle"></h2>
           <p data-i18n="puppiesSubtitle"></p>
@@ -116,41 +138,60 @@
         <div id="puppiesGrid" class="puppies-grid"></div>
       </section>
 
-      <section class="section section-soft">
-        <div class="container">
-          <div class="section-head">
-            <h2 data-i18n="managePhotosTitle"></h2>
-            <p data-i18n="managePhotosSubtitle"></p>
+      <section class="section section-soft site-page" id="transport" data-page-id="transport">
+        <div class="container reservation-layout">
+          <div>
+            <h2 data-i18n="transportTitle"></h2>
+            <p data-i18n="transportIntro"></p>
+            <ul>
+              <li data-i18n="transportOption1"></li>
+              <li data-i18n="transportOption2"></li>
+              <li data-i18n="transportOption3"></li>
+            </ul>
           </div>
-          <form id="photoManagerForm" class="form-card">
-            <label>
-              <span data-i18n="choosePuppyToManage"></span>
-              <select id="photoPuppySelect" required></select>
-            </label>
-            <label>
-              <span data-i18n="photoUrlLabel"></span>
-              <input type="url" id="photoUrlInput" data-i18n-placeholder="photoPlaceholder" placeholder="https://..." />
-            </label>
-            <label>
-              <span data-i18n="photoUploadLabel"></span>
-              <input type="file" id="photoFileInput" accept="image/*" />
-            </label>
-            <img id="photoPreview" class="photo-preview" alt="Aperçu photo" />
-            <div class="manager-actions">
-              <button class="btn" type="submit" data-i18n="addPhoto"></button>
-              <button class="btn btn-outline" type="button" id="removePhotoBtn" data-i18n="removePhoto"></button>
-            </div>
-            <p id="photoManagerFeedback" class="feedback"></p>
-          </form>
+          <div class="form-card">
+            <h3 data-i18n="transportAdviceTitle"></h3>
+            <p data-i18n="transportAdviceText"></p>
+          </div>
         </div>
       </section>
 
-      <section class="section section-soft">
+      <section class="section container site-page" id="kit" data-page-id="kit">
+        <div class="section-head">
+          <h2 data-i18n="kitTitle"></h2>
+          <p data-i18n="kitSubtitle"></p>
+        </div>
+        <div class="varieties-grid">
+          <article class="variety-card">
+            <h3 data-i18n="kitHealthTitle"></h3>
+            <p data-i18n="kitHealthText"></p>
+          </article>
+          <article class="variety-card">
+            <h3 data-i18n="kitFoodTitle"></h3>
+            <p data-i18n="kitFoodText"></p>
+          </article>
+          <article class="variety-card">
+            <h3 data-i18n="kitComfortTitle"></h3>
+            <p data-i18n="kitComfortText"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-soft site-page" id="rules" data-page-id="rules">
         <div class="container reservation-layout">
           <div>
-            <h2 data-i18n="reserveTitle"></h2>
-            <p data-i18n="reserveDescription"></p>
-            <p class="note" data-i18n="paymentNote"></p>
+            <h2 data-i18n="rulesTitle"></h2>
+            <p data-i18n="rulesIntro"></p>
+            <ol class="rules-list">
+              <li data-i18n="rule1"></li>
+              <li data-i18n="rule2"></li>
+              <li data-i18n="rule3"></li>
+              <li data-i18n="rule4"></li>
+            </ol>
+            <div class="legal-box">
+              <p class="legal-nb" data-i18n="depositLawNB"></p>
+              <p class="legal-formal" data-i18n="depositLawFormal"></p>
+            </div>
           </div>
           <form id="reservationForm" class="form-card">
             <h3 data-i18n="reservationFormTitle"></h3>
@@ -174,13 +215,14 @@
               <span data-i18n="message"></span>
               <textarea name="message" rows="4"></textarea>
             </label>
+            <p class="note" data-i18n="paymentNote"></p>
             <button class="btn" type="submit" data-i18n="reserveNow"></button>
             <p id="reservationFeedback" class="feedback"></p>
           </form>
         </div>
       </section>
 
-      <section class="section container" id="contact">
+      <section class="section container site-page" id="contact" data-page-id="contact">
         <div class="section-head">
           <h2 data-i18n="contactTitle"></h2>
           <p data-i18n="contactSubtitle"></p>
@@ -189,11 +231,11 @@
           <div class="contact-card">
             <p><strong data-i18n="phoneLabel"></strong> <a href="tel:+33757752601">+33 7 57 75 26 01</a></p>
             <p>
-              <strong>WhatsApp:</strong>
+              <strong data-i18n="whatsappLabel"></strong>
               <a href="https://wa.me/33757752601" target="_blank" rel="noopener noreferrer">+33 7 57 75 26 01</a>
             </p>
             <p>
-              <strong>Email:</strong>
+              <strong data-i18n="emailLabel"></strong>
               <a href="mailto:etablissementcanincomp@proton.me">etablissementcanincomp@proton.me</a>
             </p>
             <p><strong data-i18n="addressLabel"></strong> Heugnes, Lyon, France</p>
@@ -217,6 +259,43 @@
           </form>
         </div>
       </section>
+      </div>
+
+      <section class="section container reviews-section" id="reviews">
+        <div class="section-head">
+          <h2 data-i18n="reviewsTitle"></h2>
+          <p data-i18n="reviewsSubtitle"></p>
+        </div>
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 stars">★★★★★</div>
+            <p class="review-quote" data-i18n="review1Quote"></p>
+            <p class="review-meta">
+              <span data-i18n="review1Name"></span> ·
+              <span data-i18n="review1Location"></span>
+              <span class="verified-badge" data-i18n="verifiedLabel"></span>
+            </p>
+          </article>
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 stars">★★★★★</div>
+            <p class="review-quote" data-i18n="review2Quote"></p>
+            <p class="review-meta">
+              <span data-i18n="review2Name"></span> ·
+              <span data-i18n="review2Location"></span>
+              <span class="verified-badge" data-i18n="verifiedLabel"></span>
+            </p>
+          </article>
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 stars">★★★★★</div>
+            <p class="review-quote" data-i18n="review3Quote"></p>
+            <p class="review-meta">
+              <span data-i18n="review3Name"></span> ·
+              <span data-i18n="review3Location"></span>
+              <span class="verified-badge" data-i18n="verifiedLabel"></span>
+            </p>
+          </article>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
@@ -226,6 +305,7 @@
       </div>
     </footer>
 
+    <script src="./data/puppies.js"></script>
     <script src="./app.js"></script>
   </body>
 </html>
